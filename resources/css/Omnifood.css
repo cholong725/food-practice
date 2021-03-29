@@ -1,0 +1,508 @@
+:root {
+  --orange :  #e67e22;
+  --white : #fff;
+  --darkorange : #cf6d17;
+  --text : #555;
+  --gray : #eeebeb;
+  --footer-back : #282828;
+}
+/*-----------------------------------*/
+/*basic setup*/
+/*-----------------------------------*/
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+html, body {
+  background-color: var(--white);
+  color : var(--text);
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+/* clearfix 와 같은 방법 이나, section 사이에 여백을 주어 float을 없애는 효과인듯하다.
+.section-meals::after {
+  content:' . ';
+  display: block;
+  clear:both;
+}
+*/
+
+.clearfix {zoom:1}
+.clearfix:after {
+  content : ' . ';
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+/*-----------------------------------*/
+/*reuserble components*/
+/*-----------------------------------*/
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+section {
+  padding: 80px 0;
+}
+.box {
+  padding:1%;
+}
+/*-----------------------------------*/
+/*headings*/
+/*-----------------------------------*/
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color:var(--white);
+  font-size: 240%;
+  word-spacing: 3px;
+  letter-spacing: 1px;
+}
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+h2:after {
+  display: block;
+  height: 2px;
+  background-color: var(--orange);
+  content:" ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+/*-----------------------------------*/
+/*paragraphs*/
+/*-----------------------------------*/
+.long-copy {
+  line-height: 145%;
+  width: 70%;
+  margin-left: 15%;
+}
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+/*-----------------------------------*/
+/*icons*/
+/*-----------------------------------*/
+.icon-big {
+  font-size: 350%;
+  display: block;
+  color:var(--orange);
+  margin-bottom: 10px;
+}
+.icon-small {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  color : var(--orange);
+  font-size: 120%;
+  margin-right: 10px;
+
+ /*secret to align text and icons*/
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top:-5px; /*negative를 사용하여 공간을 줄인다 */
+}
+/*-----------------------------------*/
+/*links*/
+/*-----------------------------------*/
+a:link,
+a:visited {
+  color: var(--orange);
+  text-decoration: none;
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 1px;
+  transition: border-bottom 0.2s, color 0.2s;
+}
+a:hover,
+a:active {
+  color: var(--text);
+  border-bottom: 1px solid transparent;
+}
+/*-----------------------------------*/
+/*button*/
+/*-----------------------------------*/
+
+.btn:link, .btn:visited, input[type=submit] {
+  display: inline-block;
+  padding:10px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 200px;
+  color:var(--white);
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+.btn_full:link, .btn_full:visited, input[type=submit] {
+  background-color: var(--orange);
+  border : 1px solid var(--orange);
+  color:var(--white);
+  margin-right: 15px;
+}
+.btn_ghost:link, .btn_ghost:visited {
+  border : 1px solid var(--orange);
+  color: var(--orange)
+}
+.btn:hover, .btn:active, input[type=submit]:hover, input[type=submit]:active {
+  background-color: var(--darkorange);
+}
+.btn_full:hover, .btn_full:active, input[type=submit]  {
+  border : 1px solid var(--darkorange);
+}
+.btn_ghost:hover, .btn_ghost:active {
+  border : 1px solid var(--darkorange);
+  color: var(--white)
+}
+/*-----------------------------------*/
+/*header*/
+/*-----------------------------------*/
+header {
+  background-image: linear-gradient(rgba(0,0,0, 0.7),rgba(0,0,0, 0.7)), url(img/hero.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%); /*translate:2차위치이동?*/
+}
+.logo {
+  margin-top: 20px;
+  height: 100px;
+  width: auto;
+  float:left;
+}
+.logo-black {
+  display: none;
+  margin-top: 5px 0;
+  height: 50px;
+  width: auto;
+  float:left;
+}
+/* Main navi*/
+.main_nav {
+  margin-top: 55px;
+  float: right;
+  list-style: none;
+}
+.main_nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+.main_nav li a:link,
+.main_nav li a:visited {
+  padding:8px 0;
+  color : var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid transparent; /*transparent : 투명*/
+  transition: border-bottom 0.2s;
+}
+.main_nav li a:hover,
+.main_nav li a:active {
+  border-bottom: 2px solid var(--orange);
+}
+
+/*Sticky navi*/
+.sticky {
+  position: fixed;
+  top :0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: 0 2px 2px rgb(244, 244, 244);
+  z-index: 9999;
+}
+.sticky .main_nav {
+  margin-top: 15px;
+}
+.sticky .main_nav li a:link,
+.sticky .main_nav li a:visited {
+  padding:8px 0;
+  color : var(--text);
+}
+.sticky .logo {display: none;}
+.sticky .logo-black { display: block;}
+
+
+/*-----------------------------------*/
+/*features*/
+/*-----------------------------------*/
+.section-features .long-copy {
+  padding-bottom:30px;
+}
+/*-----------------------------------*/
+/*meals*/
+/*-----------------------------------*/
+.section-meals {
+  padding:0;
+}
+.meals-showcase {
+  list-style: none;
+  width: 100%;
+}
+.meals-showcase li {
+  display: block;
+  float: left;
+  width: 25%;
+}
+.meal-photo {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0);
+}
+.meal-photo img {
+  width: 100%;
+  height: auto;
+  transform: scale(1.15);
+  transition: transform 0.5s, opacity 0.5s;
+  opacity: 0.7;
+}
+.meal-photo img:hover {
+  transform: scale(1.05);
+  opacity:1;
+}
+/*-----------------------------------*/
+/*how it works*/
+/*-----------------------------------*/
+.section-steps {
+  background-color :var(--gray);
+}
+.steps-box:first-child {
+  text-align: right;
+  padding-right: 3%;
+  margin-top: 30px;
+}
+.steps-box:last-child {
+  text-align: left;
+  padding-left: 3%;
+  margin-top: 70px;
+}
+.app-screen {
+  width: 40%;
+}
+.works-step {
+  margin-bottom: 50px;
+}
+.works-step:last-of-type {
+  margin-bottom: 80px;
+}
+.works-step div {
+  color : var(--orange);
+  border : 2px solid var(--orange);
+  border-radius: 50%;
+  display: inline-block;
+  height: 55px;
+  width: 55px;
+  text-align: center;
+  padding : 5px;
+  float: left;
+  font-size: 150%;
+  margin-right: 25px;
+}
+.steps-box a:link, .steps-box a:visited {
+  border: 0;
+}
+.btn-app img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+/*-----------------------------------*/
+/*cities*/
+/*-----------------------------------*/
+.box img {
+  width: 100%;
+  height:auto;
+  margin-bottom: 15px;
+}
+.city-feature {
+  margin-bottom: 5px;
+}
+/*-----------------------------------*/
+/*testimonials*/
+/*-----------------------------------*/
+.section-testimonials {
+  background-image:linear-gradient(rgba(0,0,0, 0.7),rgba(0,0,0, 0.7)), url(../css/img/backcustomer.jpg);
+  /*왜 resoureces를 쓰면 안되고, ../를 쓰면 배경이 보이는가?*/
+  background-size: cover;
+  color:var(--white);
+  background-attachment: fixed;
+}
+blockquote {
+  padding:2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top:40px;
+}
+blockquote:before {
+  display: block;
+  content: "\0022";
+  font-size: 400%;
+  position: absolute;
+  top:-10px;
+  left: -15px;
+}
+cite {
+  display: block;
+  font-size: 90%;
+  margin-top: 25px;
+}
+cite img {
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+/*-----------------------------------*/
+/*plans*/
+/*-----------------------------------*/
+.section-plans {
+  background-color: var(--gray);
+}
+.plan-box {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 2px 2px #f9f9f9;
+}
+.plan-box div {
+  padding:15px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.plan-box div:first-child {
+  background-color: #f9f9f9;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.plan-box div:last-child {
+  text-align: center;
+  border: none;
+}
+.plan-price {
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color:var(--orange);
+}
+.plan-price span {
+  font-size:30%;
+  color : var(--text);
+  font-weight: 300;
+}
+.plan-price-meal {
+  font-size: 80%;
+}
+.plan-box ul {
+  list-style: none;
+}
+.plan-box ul li {
+  padding:5px 0;
+}
+/*-----------------------------------*/
+/*form*/
+/*-----------------------------------*/
+.section-form {
+  margin: 0 auto;
+  width: 60%;
+}
+input[type=text], input[type=email], select, textarea {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid var(--gray);
+}
+textarea {
+  height: 100px;
+}
+input[type=checkbox] {
+  margin: 10px 5px 10px 0;
+}
+/*-----------------------------------*/
+/*footer*/
+/*-----------------------------------*/
+footer {
+  background-color: var(--footer-back);
+  padding: 50px;
+  font-size: 80%;
+}
+footer p {
+  margin-top: 20px;
+  color : var(--text);
+  text-align: center;
+  font-size: 90%;
+}
+.footer-nav {
+  list-style: none;
+  float: left;
+}
+.social-links {
+  list-style: none;
+  float: right;
+}
+.footer-nav li, .social-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+.footer-nav li:last-child, .social-links li:last-child {
+  margin-right: 0;
+}
+.footer-nav li a:link, .footer-nav li a:visited,
+.social-links li a:link, .social-links li a:visited {
+  color: var(--text);
+  border: 0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-nav li a:hover, .footer-nav li a:active,
+.social-links li a:hover, .social-links li a:active {
+  color : rgb(163, 163, 163);
+}
+.social-links li a:link, .social-links li a:visited {
+  font-size: 160%;
+}
+.fa-facebook-square, .fa-twitter, .fa-instagram, .fa-google-plus-g {
+  transition: color 0.2s;
+}
+.fa-facebook-square:hover {
+  color : #3b5999;
+}
+.fa-twitter:hover {
+  color : #55acee;
+}
+.fa-instagram:hover {
+  color : #e4405f;
+}
+.fa-google-plus-g:hover {
+  color : #dd4b39;
+}
